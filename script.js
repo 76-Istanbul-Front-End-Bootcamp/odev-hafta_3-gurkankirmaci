@@ -1,19 +1,21 @@
-function Animal(name){
-    this.name = name;
+class Animal {
+    constructor(name,legs,actionText,actionSoundName){
+       this.name = name; 
+       this.legs= legs;
+       this.actionText=actionText;
+       this.actionSoundName=actionSoundName;
+       
 }
 
-Animal.prototype.action = function(){
-  document.getElementById(this.actionSoundName).play();
-  
-}
-
-Animal.prototype.putInTheDocument = function(){
+putInTheDocument() {
     var petsTable = document.getElementById("petsTable");
     var petTR = document.createElement("tr");
+    petTR.className = "row";
   
     var petNameTD = document.createElement("td");
     petNameTD.textContent = this.name;
     petTR.appendChild(petNameTD);
+    
   
     var petLegsTD = document.createElement("td");
     petLegsTD.textContent = this.legs;
@@ -25,31 +27,46 @@ Animal.prototype.putInTheDocument = function(){
     petActionTD.appendChild(petActionTDButton);
     petTR.appendChild(petActionTD);
     
-    petActionTDButton.onclick = this.action.bind(this);
-    petsTable.querySelector("tbody").appendChild(petTR)
+    petActionTDButton.onclick = this.showAction.bind(this);
+    petTR.onclick = this.showImage.bind(this);
+    petsTable.querySelector("tbody").appendChild(petTR);
+    
+  }
+
+  showAction() {
+    document.getElementById(this.actionSoundName).play();
+    }
+
+  showImage() {
+    document.querySelector("img").src = this.image;
+    }
+
+
 }
 
+class Cat extends Animal{
+    constructor(name,legs,actionText,actionSoundName){
+    super(name,legs,actionText,actionSoundName);
+    //image
+    this.image = "https://img-s1.onedio.com/id-55257c07af6b6a0336c2d89f/rev-0/w-900/h-675/f-jpg/s-84ef4b826e9d4ee1cbf4487603bad9a8f969b53c.jpg";
+      
+    } 
 
-function Cat(name){
-    Animal.call(this, name);
-    this.legs = 4;
-    this.actionText = "Meoow"
-    this.actionSoundName = "meow"
 }
 
-Cat.prototype = Animal.prototype;
+class Monkey extends Animal{
+   constructor(name,legs,actionText,actionSoundName){
+   super(name,legs,actionText,actionSoundName);
+   //image
+   this.image = "https://khosann.com/wp-content/uploads/2019/05/Cinliler-maymuna-insan-beyni-geni-yerlestirdi.jpg";
+   
+    } 
+    
+} 
 
-function Monkey(name){
-    Animal.call(this, name);
-    this.legs = 2;
-    this.actionText = "Scream";
-    this.actionSoundName = "scream";
-}
-
-Monkey.prototype = Animal.prototype;
-
-var Mila = new Cat("Mila");
+const Mila = new Cat("Mila","4","Meoow","meow");
 Mila.putInTheDocument();
 
-var Charlie = new Monkey("Charlie");
+const Charlie = new Monkey("Charlie","2","scream","scream");
 Charlie.putInTheDocument();
+
