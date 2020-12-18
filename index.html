@@ -5,10 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+body{
+  background: green url("https://i.pinimg.com/originals/72/6b/75/726b75ecd1aabb80b3f85ce22b323c83.jpg") no-repeat fixed center;
+}
+
+#petsTable{
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    position: relative;
+    margin:auto;
+    background-color: rgb(97, 77, 63);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:black;
+
+}
+
+.row:hover{
+    background-color: green;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: honeydew;
+}
+
+.animalPic {
+    width :400px;
+    height: 400px;
+    padding: 50px 0px 0px 0px;
+    border-radius: 50%;
+    margin-left: 35%;
+    margin-right: 35%;
+    
+}
+</style>
+
 <body>
+     
     <table id="petsTable">
         <thead>
-            <tr>
+            <tr class="row">
                 <th>Name</th>
                 <th>Legs</th>
                 <th>Action</th>
@@ -17,9 +52,11 @@
         <tbody>
         </tbody>
     </table>
-  
-  <audio id="meow" src="http://static1.grsites.com/archive/sounds/animals/animals023.mp3"></audio>
-   <audio id="scream" src="http://static1.grsites.com/archive/sounds/animals/animals060.mp3"></audio>
+    
+    <audio id="meow" src="http://static1.grsites.com/archive/sounds/animals/animals023.mp3"></audio>
+    <audio id="scream" src="http://static1.grsites.com/archive/sounds/animals/animals060.mp3"></audio>
+
+    <img  class="animalPic", src="https://i.pinimg.com/236x/05/fb/25/05fb258146be22db8765131a610c5ef2.jpg">
   <script src="./script.js"></script>
 </body>
 </html>
